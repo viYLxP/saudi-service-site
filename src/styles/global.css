@@ -5,18 +5,25 @@
    ========================================================================== */
 
 :root {
-  --color-primary: #0f5c4d;
-  --color-primary-dark: #0a4439;
-  --color-primary-soft: #e6f2ef;
-  --color-accent: #c9962f;
-  --color-accent-soft: #fbf3e2;
+  --color-primary: #0b2545;
+  --color-primary-dark: #061833;
+  --color-primary-soft: #e7edf6;
+  --color-accent: #c9a227;
+  --color-accent-soft: #faf3dc;
+  /* Darker gold for small text on light backgrounds (the bright gold is too faint there). */
+  --color-accent-text: #8a6d0f;
+  /* Navy hero/header surfaces and the lighter gold used on them. */
+  --color-navy-surface: #0b2545;
+  --color-navy-raised: #13325a;
+  --color-on-navy: #c3cfe0;
+  --color-gold-on-navy: #e3c35a;
   --color-whatsapp: #128c4a;
   --color-whatsapp-dark: #0d6d39;
-  --color-text: #1b2a27;
-  --color-muted: #5b6b67;
-  --color-border: #dbe4e1;
+  --color-text: #0e1a2b;
+  --color-muted: #56627a;
+  --color-border: #dde3ec;
   --color-bg: #ffffff;
-  --color-bg-alt: #f5f8f7;
+  --color-bg-alt: #f4f6fa;
   --color-error: #b42318;
   --color-error-soft: #fef3f2;
   --color-warning-soft: #fffaeb;
@@ -24,12 +31,12 @@
   --color-info-soft: #eef6ff;
   --color-info-border: #b9d7f7;
 
-  --font-latin: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', Tahoma, 'Geeza Pro', Arial, sans-serif;
+  --font-latin: 'Manrope Variable', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-arabic: 'Cairo Variable', 'Cairo', 'Noto Sans Arabic', 'Segoe UI', Tahoma, 'Geeza Pro', Arial, sans-serif;
 
-  --radius: 14px;
-  --radius-sm: 10px;
-  --shadow: 0 1px 2px rgb(16 40 34 / 6%), 0 8px 24px rgb(16 40 34 / 6%);
+  --radius: 10px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgb(11 37 69 / 6%), 0 8px 24px rgb(11 37 69 / 8%);
   --header-h: 72px;
   --container: 1160px;
   --gutter: clamp(16px, 4vw, 32px);
@@ -307,8 +314,8 @@ main:focus {
   z-index: 50;
   /* No backdrop-filter here: it would become the containing block of the fixed
      mobile menu, and the off-canvas panel would then cause horizontal scrolling. */
-  background: rgb(255 255 255 / 97%);
-  border-block-end: 1px solid var(--color-border);
+  background: var(--color-navy-surface);
+  border-block-end: 1px solid var(--color-navy-raised);
 }
 .header-inner {
   display: flex;
@@ -320,7 +327,7 @@ main:focus {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--color-text);
+  color: #fff;
   text-decoration: none;
   margin-inline-end: auto;
 }
@@ -329,9 +336,9 @@ main:focus {
   place-items: center;
   inline-size: 40px;
   block-size: 40px;
-  border-radius: 12px;
-  background: var(--color-primary);
-  color: #fff;
+  border-radius: 10px;
+  background: var(--color-accent);
+  color: var(--color-navy-surface);
   flex-shrink: 0;
 }
 .brand-text {
@@ -343,7 +350,7 @@ main:focus {
   font-size: 1.0625rem;
 }
 .brand-text small {
-  color: var(--color-muted);
+  color: var(--color-on-navy);
   font-size: 0.8125rem;
 }
 
@@ -361,13 +368,13 @@ main:focus {
   padding-block: 8px;
   padding-inline: 12px;
   border-radius: 8px;
-  color: var(--color-text);
+  color: #d6deeb;
   text-decoration: none;
   font-weight: 500;
 }
 .nav-list a:hover {
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
+  background: rgb(255 255 255 / 8%);
+  color: #fff;
 }
 .nav-actions {
   display: flex;
@@ -381,15 +388,16 @@ main:focus {
   gap: 6px;
   min-block-size: 40px;
   padding-inline: 14px;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgb(255 255 255 / 30%);
   border-radius: 999px;
-  background: #fff;
+  background: transparent;
+  color: #fff;
   cursor: pointer;
   font-weight: 600;
 }
 .lang-switch:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-gold-on-navy);
+  color: var(--color-gold-on-navy);
 }
 
 .menu-toggle {
@@ -397,9 +405,10 @@ main:focus {
   place-items: center;
   inline-size: 44px;
   block-size: 44px;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  background: #fff;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
   cursor: pointer;
 }
 .nav-backdrop {
@@ -415,7 +424,7 @@ main:focus {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgb(10 30 25 / 40%);
+    background: rgb(6 24 51 / 50%);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s;
@@ -436,7 +445,7 @@ main:focus {
     gap: 16px;
     padding: 24px;
     padding-block-start: calc(var(--header-h) + 8px);
-    background: #fff;
+    background: var(--color-navy-surface);
     box-shadow: var(--shadow);
     transform: translateX(var(--offcanvas-shift));
     visibility: hidden;
@@ -502,7 +511,7 @@ main:focus {
 .eyebrow {
   display: inline-block;
   margin-block-end: 8px;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: 0.08em;
@@ -527,8 +536,9 @@ main:focus {
 
 .hero {
   background:
-    radial-gradient(ellipse at top, var(--color-primary-soft), transparent 60%),
-    linear-gradient(180deg, #fff, var(--color-bg-alt));
+    radial-gradient(70% 90% at 15% 0%, var(--color-navy-raised), transparent 70%),
+    var(--color-navy-surface);
+  color: #fff;
   padding-block: clamp(48px, 8vw, 104px);
 }
 .hero-inner {
@@ -545,9 +555,15 @@ html:lang(ar) .hero h1 {
   letter-spacing: 0;
   line-height: 1.4;
 }
+.hero h1 {
+  color: #fff;
+}
+.hero .eyebrow {
+  color: var(--color-gold-on-navy);
+}
 .hero-subtitle {
   font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
-  color: var(--color-muted);
+  color: var(--color-on-navy);
   max-inline-size: 60ch;
 }
 .hero-ctas {
@@ -572,6 +588,21 @@ html:lang(ar) .hero h1 {
   color: var(--color-primary);
   flex-shrink: 0;
 }
+.hero-points li {
+  color: #e4eaf3;
+}
+.hero-points .icon {
+  color: var(--color-gold-on-navy);
+}
+.site-header .btn-primary,
+.hero .btn-primary {
+  background: var(--color-accent);
+  color: var(--color-navy-surface);
+}
+.site-header .btn-primary:hover,
+.hero .btn-primary:hover {
+  background: var(--color-gold-on-navy);
+}
 .hero-visual {
   position: relative;
 }
@@ -580,8 +611,9 @@ html:lang(ar) .hero h1 {
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   padding: 28px;
-  border-radius: 28px;
-  background: var(--color-primary);
+  border: 1px solid rgb(201 162 39 / 45%);
+  border-radius: 16px;
+  background: linear-gradient(160deg, var(--color-navy-raised), var(--color-navy-surface));
   color: #fff;
   aspect-ratio: 1;
 }
@@ -592,7 +624,7 @@ html:lang(ar) .hero h1 {
   opacity: 0.95;
 }
 .hero-art > :nth-child(even) {
-  color: var(--color-accent);
+  color: var(--color-gold-on-navy);
 }
 .hero-card {
   position: absolute;
@@ -774,7 +806,7 @@ html:lang(ar) .hero h1 {
   margin-block-end: 14px;
   border-radius: 50%;
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-navy-surface);
   font-weight: 700;
 }
 @media (max-width: 960px) {
@@ -1061,12 +1093,12 @@ html[dir='rtl'] .field [dir='auto'] {
 /* ---------- Footer ---------- */
 
 .site-footer {
-  background: #0c2d27;
-  color: #c5d6d1;
+  background: var(--color-primary-dark);
+  color: var(--color-on-navy);
   padding-block: 56px 24px;
 }
 .site-footer a {
-  color: #e8f1ee;
+  color: #e4eaf3;
   text-decoration: none;
 }
 .site-footer a:hover {
@@ -1163,7 +1195,7 @@ html[dir='rtl'] .field [dir='auto'] {
   gap: 10px;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
-  background: #102b25;
+  background: var(--color-primary-dark);
   color: #fff;
   box-shadow: var(--shadow);
   pointer-events: auto;
