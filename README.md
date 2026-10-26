@@ -82,7 +82,7 @@ tests/e2e/         Playwright tests
 The site is static (`dist/`), so any static host works.
 
 - **Vercel / Netlify / Cloudflare Pages:** import the repository; build command `npm run build`, output `dist`.
-- **GitHub Pages:** `.github/workflows/deploy-pages.yml` lints, tests, builds and deploys. In the repository open **Settings → Pages → Source → GitHub Actions**.
+- **GitHub Pages:** `.github/workflows/deploy-pages.yml` lints, tests, builds and deploys. It runs manually (Actions → Deploy to GitHub Pages → Run workflow) after you set **Settings → Pages → Source → GitHub Actions**.
 
 No API keys or secrets are needed.
 
